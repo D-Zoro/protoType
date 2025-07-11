@@ -34,7 +34,7 @@ seaborn==0.13.0
 plotly==5.17.0
 
 # API Clients
-openweathermap-api==1.0.0
+#openweathermap-api==1.0.0
 
 # Utilities
 python-dateutil==2.8.2

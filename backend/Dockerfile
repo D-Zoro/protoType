@@ -8,12 +8,12 @@ RUN apt-get update && apt-get install -y \
     build-essential gcc libpq-dev git curl && rm -rf /var/lib/apt/lists/*
 
 
-COPY backend/requirements.txt .
+COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 
-COPY backend/src ./src
-COPY backend/.env .env
+COPY src ./src
+COPY ./.env .env
 
 #  FastAPI port
 EXPOSE 8000
