@@ -6,8 +6,8 @@ import pandas as pd
 from typing import Dict, List, Optional
 
 class WeatherAPIClient:
-    def __init__(self, api_key: str = None):
-        self.api_key = os.getenv('OPENWEATHER_API_KEY')
+    def __init__(self):
+        self.api_key =  os.getenv('OPENWEATHER_API_KEY')
         self.base_url = "http://api.openweathermap.org/data/2.5"
         self.air_pollution_url = "http://api.openweathermap.org/data/2.5/air_pollution"
         
@@ -27,7 +27,7 @@ class WeatherAPIClient:
     
     def get_air_pollution_current(self, lat: float, lon: float) -> Dict:
         """Get current air pollution data"""
-        url = f"{self.air_pollution_url}/current"
+        url = f"{self.air_pollution_url}"
         params = {
             'lat': lat,
             'lon': lon,
