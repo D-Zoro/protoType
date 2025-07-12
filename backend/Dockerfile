@@ -13,6 +13,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 
 COPY src ./src
+COPY ./service_accounts ./service_accounts/
 COPY ./.env .env
 
 #  FastAPI port
