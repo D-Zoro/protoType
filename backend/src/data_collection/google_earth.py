@@ -78,7 +78,7 @@ class GoogleEarthClient:
                     ).filterBounds(region)
                     
                     # Get the mean value over the time period
-                    mean_image = filtered.mean()
+                    mean_image = filtered.mean().reproject('EPSG:4326',None,1000)
                     
                     # Sample the data at our point
                     sample = mean_image.sample(
@@ -157,7 +157,7 @@ class GoogleEarthClient:
             
             if filtered.size().getInfo() > 0:
                 # Get the median image
-                median_image = filtered.median()
+                median_image = filtered.median().reproject('EPSG:4326', None, 30)
                 
                 # Sample the data
                 sample = median_image.sample(
