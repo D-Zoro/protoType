@@ -14,15 +14,10 @@ services:
 
 
   frontend:
+    build: ./frontend
     container_name: airo-frontend
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
     ports:
       - "3000:3000"
-    # environment:
-    #   - NODE_ENV=production
-    volumes:
-      - .:/app
-      - /app/node_modules
-    restart: unless-stopped
+
