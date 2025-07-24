@@ -1,26 +1,29 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: linear-gradient(135deg, #050507 0%, #0F0F23 50%, #1F1F2E 100%);
+    background-attachment: fixed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .cyber-card {
+    @apply bg-cyber-gray border border-cyber-purple/20 rounded-lg p-6 shadow-lg hover:shadow-cyber-purple/10 transition-all duration-300 hover:border-cyber-purple/40;
+  }
+  
+  .cyber-button {
+    @apply bg-gradient-to-r from-cyber-purple to-cyber-violet hover:from-cyber-violet hover:to-cyber-purple text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-cyber-purple/30;
+  }
+  
+  .cyber-input {
+    @apply bg-cyber-gray border border-cyber-purple/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyber-purple focus:border-transparent transition-all duration-300;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px #8B5CF6, 0 0 20px #8B5CF6, 0 0 30px #8B5CF6;
+  }
 }
+
